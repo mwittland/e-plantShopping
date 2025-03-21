@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from './CartSlice';
+import { removeItem, updateQuantity, addItem } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
@@ -14,6 +14,9 @@ const CartItem = ({ onContinueShopping }) => {
     });
     return total;
   };
+  const handleAddItem = (item) => {
+    dispatch(addItem({ name: item.name}));
+    };
 
   const handleContinueShopping = (e) => {
    onContinueShopping(e);
